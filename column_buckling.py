@@ -10,7 +10,7 @@ def find_critical_load(L, E, A, r, c, e, sigma_allow):
 
     Return: העומס P בניוטון (float)
     """
-    import numpy as np
+ import numpy as np
 from scipy.optimize import bisect
 
 def find_critical_load(L, E, A, r, c, e, sigma_allow):
@@ -49,7 +49,7 @@ def find_critical_load(L, E, A, r, c, e, sigma_allow):
     # Upper bound guess (slightly below Euler load)
     P_upper = (np.pi**2 * E * A) / ((L / r)**2) * 0.9
     
-    # Use bisection method to find the root
+    # Solve using bisection method
     P_critical = bisect(objective, 1e-6, P_upper, xtol=1e-6)
     
     return P_critical
